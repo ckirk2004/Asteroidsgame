@@ -54,14 +54,13 @@ while True:
         if asteroid.collides_with(player):
             log_event("player_hit")
             print("Game Over")
-            shot.kill()
             quit()
 
         for shot in shots:
-            if asteroid.collides_with(shot):
-                log_event("asteroid shot")
+            if asteroid.collides_with(shot): 
                 shot.kill()
-                asteroid.kill()
+                asteroid.split()
+                log_event("asteroid_shot")
 
 
     for obj in drawable:
